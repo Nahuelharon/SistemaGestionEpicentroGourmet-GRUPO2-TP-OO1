@@ -40,54 +40,21 @@ public class Sistema {
 		return lstFestivales;
 	}
 
-	public UnidadesDeVenta traerUnidad(String codigo) {
+	public Festival traerFestival(int idFestival) {
+        int i = 0;
+        Festival encontrado = null;
 
-		int i = 0;
-		UnidadesDeVenta unidadDeVenta = null;
+        while (i < lstFestivales.size() && encontrado == null) {
 
-		while (i < lstUnidadesDeVenta.size() && unidadDeVenta == null) {
+            Festival f = lstFestivales.get(i);
 
-			UnidadesDeVenta u = lstUnidadesDeVenta.get(i);
-
-			if (u.getCodigo().equalsIgnoreCase(codigo)) {
-
-				unidadDeVenta = u;
-			}
-
-			i++;
-		}
-
-		return unidadDeVenta;
-	}
-
-	public List<Pedido> traerPedidos(LocalDate fecha) {
-
-		List<Pedido> pedidos = new ArrayList<Pedido>();
-
-		for (Pedido p : lstPedidos) {
-
-			if (p.getFecha().equals(fecha)) {
-
-				pedidos.add(p);
-			}
-
-		}
-
-		return pedidos;
-	}
-
-	public boolean eliminarUnidad(String codigo) throws Exception {
-
-		UnidadesDeVenta unidadEliminar = traerUnidad(codigo);
-
-		if (unidadEliminar == null) {
-
-			throw new Exception("ERROR: La unidad de venta no existe");
-		}
-
-		return lstUnidadesDeVenta.remove(unidadEliminar);
-
-	}
+            if (f.getIdFestival() ==(idFestival)) {
+                encontrado = f;
+            }
+            i++;
+        }
+        return encontrado;
+    }
 
 }
 	
