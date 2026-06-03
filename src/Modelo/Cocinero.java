@@ -1,20 +1,17 @@
 package Modelo;
 
-public class CociName {
+public class Cocinero {
 	//Atributos
 	private String especialidad;
 	private double plusCategoria;
 	private double sueldoBase;
 		//Constructor
-	public CociName(String especialidad, double plusCategoria, double sueldoBase) {
+	public Cocinero(String especialidad, double plusCategoria, double sueldoBase) {
 		super();
 		this.especialidad = especialidad;
 		this.plusCategoria = plusCategoria;
 		this.sueldoBase = sueldoBase;
 	}
-
-		
-	
 		// Getters & Setters
 	public String getEspecialidad() {
 		return especialidad;

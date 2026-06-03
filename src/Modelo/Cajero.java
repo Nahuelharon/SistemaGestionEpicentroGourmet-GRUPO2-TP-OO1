@@ -1,13 +1,13 @@
 package Modelo;
 
-public class CajaName {
+public class Cajero {
 
 	
 	//Atributos
 	private String turno;
 	private double sueldoBase;
 		//Constructor
-	public CajaName(String turno, double sueldoBase) {
+	public Cajero(String turno, double sueldoBase) {
 		super();
 		this.turno = turno;
 		this.sueldoBase = sueldoBase;

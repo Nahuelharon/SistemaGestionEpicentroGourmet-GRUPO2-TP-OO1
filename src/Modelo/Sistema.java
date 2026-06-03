@@ -4,14 +4,12 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 public class Sistema {
-	//Atributos
+	// Atributos
 	private List<Festival> lstFestivales;
 	private List<UnidadesDeVenta> lstUnidadesDeVenta;
 	private List<Empleado> lstEmpleados;
-	private List<Plato>lstPlatos;
+	private List<Plato> lstPlatos;
 	private List<Pedido> lstPedidos;
 
 	public Sistema() {
@@ -42,23 +40,55 @@ public class Sistema {
 		return lstFestivales;
 	}
 
+	public UnidadesDeVenta traerUnidad(String codigo) {
+
+		int i = 0;
+		UnidadesDeVenta unidadDeVenta = null;
+
+		while (i < lstUnidadesDeVenta.size() && unidadDeVenta == null) {
+
+			UnidadesDeVenta u = lstUnidadesDeVenta.get(i);
+
+			if (u.getCodigo().equalsIgnoreCase(codigo)) {
+
+				unidadDeVenta = u;
+			}
+
+			i++;
+		}
+
+		return unidadDeVenta;
+	}
+
 	public List<Pedido> traerPedidos(LocalDate fecha) {
 
 		List<Pedido> pedidos = new ArrayList<Pedido>();
 
-		for(Pedido p : lstPedidos) {
+		for (Pedido p : lstPedidos) {
 
-			if(p.equals(fecha)) {
+			if (p.getFecha().equals(fecha)) {
 
 				pedidos.add(p);
 			}
 
 		}
-		
+
 		return pedidos;
 	}
 
+	public boolean eliminarUnidad(String codigo) throws Exception {
+
+		UnidadesDeVenta unidadEliminar = traerUnidad(codigo);
+
+		if (unidadEliminar == null) {
+
+			throw new Exception("ERROR: La unidad de venta no existe");
+		}
+
+		return lstUnidadesDeVenta.remove(unidadEliminar);
+
+	}
+
 }
-	
 	
 
